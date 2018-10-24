@@ -1,0 +1,19 @@
+<h1>Restaurants</h1>
+
+<ul id="restaurants">
+
+  <div class= col-sm-8 col-sm-offset-2>
+   <% @restaurants.each do |restaurant| %>
+  <p>
+    <%= link_to restaurant.name, restaurant %>
+    <%= restaurant.reviews.pluck(:rating) %>  </p>
+    <%= link_to new_restaurant_review_path(restaurant) do %>
+    <i class="fa fa-plus"></i> Add a rating
+    <% end %>
+     <% end %>
+   </ul>
+
+
+   <%= link_to new_restaurant_path do %>
+   <i class="fa fa-plus"></i> Add a new restaurant
+   <% end %>
